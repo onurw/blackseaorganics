@@ -1,75 +1,71 @@
 index.html
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BlackSea Organics — Wild & Pure from the Black Sea Mountains</title>
-  <meta name="description" content="Lazberry (Karayemiş), Dried Bilberry, Bilberry Jam ve Luxury White Tea. Small-batch, handpicked, beautifully packed from the Black Sea highlands."/>
-  <meta name="theme-color" content="#0f3b34"/>
-  <meta property="og:title" content="BlackSea Organics"/>
-  <meta property="og:description" content="Wild & Pure from the Black Sea Mountains"/>
-  <meta property="og:type" content="website"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Small-batch organic delicacies from the Black Sea mountains. Handpicked, minimally processed, beautifully packed." />
+  <meta name="theme-color" content="#0f3b34" />
+  <meta property="og:title" content="BlackSea Organics" />
+  <meta property="og:description" content="Wild & Pure from the Black Sea Mountains" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1526406915894-6c1df2a69f01?q=80&w=1600&auto=format&fit=crop" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --bg:#0f3b34; --bg-2:#0b2723; --paper:#ffffff; --soft:#f6f7f8; --ink:#17212b; --muted:#6b7280;
-      --primary:#1b6f62; --primary-2:#134f45; --radius:18px; --shadow:0 18px 40px rgba(0,0,0,.12);
+      --bg:#0f3b34; --bg2:#0b2723; --paper:#fff; --soft:#f6f7f8; --ink:#111827; --muted:#6b7280;
+      --accent:#1b6f62; --accent2:#125247; --radius:18px; --shadow:0 18px 40px rgba(0,0,0,.12);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    *{box-sizing:border-box} html,body{margin:0;padding:0}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.65}
     a{text-decoration:none}
 
     /* NAV */
-    .nav{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(6px);
-      background:linear-gradient(180deg, rgba(15,59,52,.95), rgba(15,59,52,.88));
-      color:#fff; box-shadow:0 6px 18px rgba(0,0,0,.12);
-    }
-    .nav .inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(140%) blur(8px);
+      background:linear-gradient(180deg, rgba(15,59,52,.96), rgba(15,59,52,.86)); color:#eaf6f3}
+    .nav .inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
     .brand{font-family:"Playfair Display",serif;font-size:22px;color:#fff;letter-spacing:.3px}
-    .menu a{color:#e7f2ef;margin-left:18px;font-weight:600}
+    .menu a{color:#d7eee9;margin-left:18px;font-weight:600}
     .menu a:hover{color:#fff;text-decoration:underline}
 
     /* HERO */
     .hero{
+      color:#fff;text-align:center;
       background:
-        radial-gradient(1200px 600px at 10% -10%, #165247 0%, transparent 70%),
-        radial-gradient(1200px 600px at 90% -20%, #134439 0%, transparent 70%),
-        linear-gradient(180deg, var(--bg), var(--bg-2));
-      color:#fff; text-align:center;
+        linear-gradient(180deg, rgba(15,59,52,.55), rgba(15,59,52,.88)),
+        url("https://images.unsplash.com/photo-1526406915894-6c1df2a69f01?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat;
     }
-    .hero .inner{max-width:1000px;margin:auto;padding:84px 20px 96px}
-    .hero h1{font-family:"Playfair Display",serif;font-size:54px;letter-spacing:.4px;margin:0 0 10px}
-    .hero p{opacity:.92;margin:0 0 26px;font-weight:500}
-    .cta{display:inline-block;background:var(--primary);color:#fff;padding:14px 24px;border-radius:999px;font-weight:700;box-shadow:0 12px 28px rgba(27,111,98,.35);transition:.2s}
-    .cta:hover{background:var(--primary-2);transform:translateY(-1px)}
+    .hero .inner{max-width:1000px;margin:auto;padding:110px 20px 130px}
+    .title{font-family:"Playfair Display",serif;font-size:56px;letter-spacing:.4px;margin:0 0 12px}
+    .subtitle{opacity:.94;margin:0 0 30px;font-weight:500}
+    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;box-shadow:0 12px 28px rgba(27,111,98,.35);transition:.2s}
+    .cta:hover{background:var(--accent2);transform:translateY(-1px)}
 
-    /* WRAP */
-    .wrap{max-width:1200px;margin:-56px auto 80px;padding:0 20px}
-    .section-head{display:flex;align-items:flex-end;justify-content:space-between;margin:0 0 14px}
-    .section-head h2{font-family:"Playfair Display",serif;font-size:28px;margin:0}
-    .section-sub{color:var(--muted);margin:0 0 22px}
+    /* CARD STRIP */
+    .strip{max-width:1100px;margin:-60px auto 60px;padding:0 20px;display:grid;gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+    .card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card h3{font-family:"Playfair Display",serif;margin:0 0 6px;font-size:20px}
+    .muted{color:var(--muted);margin:0}
 
-    /* GRID & CARDS */
-    .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{background:var(--paper);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s ease}
-    .card:hover{transform:translateY(-2px)}
-    .thumb{aspect-ratio:16/10;background:#e9ecef;overflow:hidden}
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-    .card:hover .thumb img{transform:scale(1.04)}
-    .content{padding:18px 18px 20px}
-    .title{font-family:"Playfair Display",serif;font-size:20px;margin:0 0 8px}
-    .desc{color:var(--muted);margin:0 0 14px}
-    .btn{display:inline-block;background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700}
-    .btn:hover{background:var(--primary-2)}
+    /* ABOUT */
+    .about{max-width:1100px;margin:0 auto 24px;padding:0 20px}
+    .about .panel{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px}
+    .about h2{font-family:"Playfair Display",serif;margin:0 0 10px}
+    .about p{margin:0;color:var(--muted)}
 
-    /* ABOUT & FOOTER */
-    .about{margin-top:40px;background:var(--paper);padding:28px;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .footer{margin-top:80px;background:#0e3a33;color:#d1d5db;text-align:center;padding:36px 20px}
+    /* CTA BANNER */
+    .band{max-width:1100px;margin:40px auto 70px;padding:0 20px}
+    .band .box{background:linear-gradient(180deg,var(--bg),var(--bg2));color:#eaf6f3;border-radius:var(--radius);
+      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:26px 28px;box-shadow:var(--shadow)}
+    .band h3{font-family:"Playfair Display",serif;margin:0 0 6px}
+    .band p{margin:0 0 12px;color:#cfe9e3}
+
+    /* FOOTER */
+    .footer{background:#0e3a33;color:#d1d5db;text-align:center;padding:36px 20px}
     .footer a{color:#fff;text-decoration:underline}
-    @media (max-width:580px){ .hero h1{font-size:36px} }
+    @media (max-width:640px){ .title{font-size:38px} }
   </style>
 </head>
 <body>
@@ -79,7 +75,6 @@ index.html
     <div class="inner">
       <div class="brand">BlackSea Organics</div>
       <div class="menu">
-        <a href="#products">Products</a>
         <a href="#about">About</a>
         <a href="mailto:info@blackseaorganics.com">Contact</a>
         <a href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Etsy</a>
@@ -90,91 +85,49 @@ index.html
   <!-- HERO -->
   <header class="hero">
     <div class="inner">
-      <h1>Wild &amp; Pure from the Black Sea Mountains</h1>
-      <p>Small-batch organic delicacies. Handpicked, minimally processed, beautifully packed.</p>
+      <h1 class="title">Wild &amp; Pure from the Black Sea Mountains</h1>
+      <p class="subtitle">Small-batch organic delicacies. Handpicked, minimally processed, beautifully packed.</p>
       <a class="cta" href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Shop on Etsy</a>
     </div>
   </header>
 
-  <!-- PRODUCTS -->
-  <main class="wrap" id="products">
-    <div class="section-head">
-      <h2>Featured Products</h2>
-    </div>
-    <p class="section-sub">Lazberry (Karayemiş), Dried Bilberry, Bilberry Jam and our limited Luxury White Tea.</p>
+  <!-- STRIP: 3 PILLARS -->
+  <section class="strip" aria-label="Brand pillars">
+    <article class="card">
+      <h3>Wild-Harvested</h3>
+      <p class="muted">Collected from the misty slopes of the Eastern Black Sea, away from industrial farming.</p>
+    </article>
+    <article class="card">
+      <h3>Small-Batch</h3>
+      <p class="muted">Minimal processing, seasonal batches and careful hand selection for peak quality.</p>
+    </article>
+    <article class="card">
+      <h3>Beautifully Packed</h3>
+      <p class="muted">Glass-first, plastic-lite packaging that respects both the product and the land.</p>
+    </article>
+  </section>
 
-    <div class="grid">
-      <!-- Lazberry (Karayemiş) -->
-      <article class="card">
-        <div class="thumb">
-          <img src="imglazberry.jpg.jpg" alt="Lazberry (Karayemiş)">
-        </div>
-        <div class="content">
-          <h3 class="title">Lazberry (Karayemiş) • 100g</h3>
-          <p class="desc">Naturally dried, tart and aromatic. Handpicked from Eastern Black Sea hills.</p>
-          <a class="btn" href="https://www.etsy.com/uk/listing/4347826849/?ref=share_ios_native_control" target="_blank" rel="noopener">Buy on Etsy</a>
-        </div>
-      </article>
-
-      <!-- Dried Bilberry -->
-      <article class="card">
-        <div class="thumb">
-          <img src="imgdried-bilberry.jpg.jpg" alt="Dried Bilberries">
-        </div>
-        <div class="content">
-          <h3 class="title">Dried Bilberry • 100g</h3>
-          <p class="desc">Wild bilberries (Vaccinium myrtillus). Intense flavor, traditionally dried.</p>
-          <a class="btn" href="https://www.etsy.com/uk/listing/4337478060/?ref=share_ios_native_control" target="_blank" rel="noopener">Buy on Etsy</a>
-        </div>
-      </article>
-
-      <!-- Bilberry Jam -->
-      <article class="card">
-        <div class="thumb">
-          <img src="imgbilberry-jam.jpg.jpg" alt="Bilberry Jam">
-        </div>
-        <div class="content">
-          <h3 class="title">Bilberry Jam • 350g</h3>
-          <p class="desc">Traditional recipe. Freshly prepared with wild bilberries and minimal sugar.</p>
-          <a class="btn" href="https://www.etsy.com/uk/listing/4347600048/?ref=share_ios_native_control" target="_blank" rel="noopener">Buy on Etsy</a>
-        </div>
-      </article>
-
-      <!-- Luxury White Tea -->
-      <article class="card">
-        <div class="thumb">
-          <img src="imgwhite-tea.jpg.jpg" alt="Luxury White Tea">
-        </div>
-        <div class="content">
-          <h3 class="title">Luxury White Tea • Limited</h3>
-          <p class="desc">Hand-harvested, delicate and antioxidant-rich. A ritual of renewal.</p>
-          <a class="btn" href="https://www.etsy.com/uk/listing/4331558542/?ref=share_ios_native_control" target="_blank" rel="noopener">Buy on Etsy</a>
-        </div>
-      </article>
-
-      <!-- 5. Ürün -->
-      <article class="card">
-        <div class="thumb">
-          <img src="imgspecialjpg.jpg" alt="BlackSea Organics — Special">
-        </div>
-        <div class="content">
-          <h3 class="title">BlackSea Organics — Special</h3>
-          <p class="desc">Small-batch, naturally processed product from the Black Sea region.</p>
-          <a class="btn" href="https://www.etsy.com/uk/listing/4347928755/?ref=share_ios_native_control" target="_blank" rel="noopener">Buy on Etsy</a>
-        </div>
-      </article>
-    </div>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-      <h2 class="section-title" style="margin:0 0 8px">About BlackSea Organics</h2>
-      <p class="section-sub" style="margin:0">
-        We craft small-batch organic delicacies from the misty slopes of the Black Sea mountains.
-        Handpicked, minimally processed and beautifully packed. Discover Lazberry (Karayemiş),
-        wild bilberries and our limited white tea collection.
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="panel">
+      <h2>About BlackSea Organics</h2>
+      <p>
+        We craft nature-first food experiences from Turkey’s Black Sea mountains. Our focus is purity: wild-harvested
+        ingredients, gentle methods and timeless taste. Explore our seasonal releases on Etsy and follow along as we grow.
       </p>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="band" aria-label="Call to action">
+    <div class="box">
+      <div>
+        <h3>Discover the collection on Etsy</h3>
+        <p>Worldwide shipping • Small-batch releases • Limited stock</p>
+      </div>
+      <a class="cta" href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Go to Etsy</a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="footer">
