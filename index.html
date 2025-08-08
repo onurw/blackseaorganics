@@ -1,139 +1,301 @@
 index.html
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BlackSea Organics — Wild & Pure from the Black Sea Mountains</title>
-  <meta name="description" content="Small-batch organic delicacies from the Black Sea mountains. Handpicked, minimally processed, beautifully packed." />
-  <meta name="theme-color" content="#0f3b34" />
-  <meta property="og:title" content="BlackSea Organics" />
-  <meta property="og:description" content="Wild & Pure from the Black Sea Mountains" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1526406915894-6c1df2a69f01?q=80&w=1600&auto=format&fit=crop" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --bg:#0f3b34; --bg2:#0b2723; --paper:#fff; --soft:#f6f7f8; --ink:#111827; --muted:#6b7280;
-      --accent:#1b6f62; --accent2:#125247; --radius:18px; --shadow:0 18px 40px rgba(0,0,0,.12);
-    }
-    *{box-sizing:border-box} html,body{margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.65}
-    a{text-decoration:none}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BlackSea Organics — Wild & Pure from the Black Sea Mountains</title>
+<meta name="description" content="Small-batch organic delicacies from Turkey’s Black Sea mountains. Wild-harvested, minimally processed, beautifully packed." />
+<meta name="theme-color" content="#0f3b34" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<meta property="og:title" content="BlackSea Organics" />
+<meta property="og:description" content="Wild & Pure from the Black Sea Mountains" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1526406915894-6c1df2a69f01?q=80&w=1600&auto=format&fit=crop" />
+<style>
+  :root{
+    --bg:#0f3b34; --bg2:#0b2723; --paper:#fff; --soft:#f5f7f7; --ink:#111827; --muted:#6b7280;
+    --accent:#1b6f62; --accent2:#125247; --radius:18px; --shadow:0 18px 40px rgba(0,0,0,.12);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--soft);color:var(--ink);line-height:1.65}
 
-    /* NAV */
-    .nav{position:sticky;top:0;z-index:40;backdrop-filter:saturate(140%) blur(8px);
-      background:linear-gradient(180deg, rgba(15,59,52,.96), rgba(15,59,52,.86)); color:#eaf6f3}
-    .nav .inner{max-width:1200px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
-    .brand{font-family:"Playfair Display",serif;font-size:22px;color:#fff;letter-spacing:.3px}
-    .menu a{color:#d7eee9;margin-left:18px;font-weight:600}
-    .menu a:hover{color:#fff;text-decoration:underline}
+  a{text-decoration:none}
+  .container{max-width:1200px;margin:auto;padding:0 20px}
 
-    /* HERO */
-    .hero{
-      color:#fff;text-align:center;
-      background:
-        linear-gradient(180deg, rgba(15,59,52,.55), rgba(15,59,52,.88)),
-        url("https://images.unsplash.com/photo-1526406915894-6c1df2a69f01?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat;
-    }
-    .hero .inner{max-width:1000px;margin:auto;padding:110px 20px 130px}
-    .title{font-family:"Playfair Display",serif;font-size:56px;letter-spacing:.4px;margin:0 0 12px}
-    .subtitle{opacity:.94;margin:0 0 30px;font-weight:500}
-    .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;box-shadow:0 12px 28px rgba(27,111,98,.35);transition:.2s}
-    .cta:hover{background:var(--accent2);transform:translateY(-1px)}
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(15,59,52,.94);backdrop-filter:saturate(140%) blur(8px);box-shadow:0 8px 18px rgba(0,0,0,.15)}
+  .nav .inner{height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:"Playfair Display",serif;font-size:22px;color:#fff}
+  .menu a{color:#e7f2ef;margin-left:20px;font-weight:600}
+  .menu a:hover{color:#fff;text-decoration:underline}
+  .hamb{display:none;color:#e7f2ef;font-size:24px;cursor:pointer}
+  @media (max-width:820px){
+    .menu{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(15,59,52,.98);padding:14px 20px}
+    .menu a{display:block;padding:10px 0;margin:0;border-top:1px solid rgba(255,255,255,.08)}
+    .hamb{display:block}
+    .menu.open{display:block}
+  }
 
-    /* CARD STRIP */
-    .strip{max-width:1100px;margin:-60px auto 60px;padding:0 20px;display:grid;gap:20px;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .card h3{font-family:"Playfair Display",serif;margin:0 0 6px;font-size:20px}
-    .muted{color:var(--muted);margin:0}
+  /* HERO */
+  .hero{
+    color:#fff;text-align:center;
+    background:
+      linear-gradient(180deg, rgba(15,59,52,.55), rgba(15,59,52,.88)),
+      url("https://images.unsplash.com/photo-1526406915894-6c1df2a69f01?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat;
+  }
+  .hero .inner{padding:110px 20px 130px}
+  .title{font-family:"Playfair Display",serif;font-size:56px;letter-spacing:.4px;margin:0 0 12px}
+  .subtitle{opacity:.94;margin:0 0 30px;font-weight:500}
+  .cta{display:inline-block;background:var(--accent);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;box-shadow:0 12px 28px rgba(27,111,98,.35);transition:.2s}
+  .cta:hover{background:var(--accent2);transform:translateY(-1px)}
+  @media (max-width:640px){.title{font-size:38px}}
 
-    /* ABOUT */
-    .about{max-width:1100px;margin:0 auto 24px;padding:0 20px}
-    .about .panel{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px}
-    .about h2{font-family:"Playfair Display",serif;margin:0 0 10px}
-    .about p{margin:0;color:var(--muted)}
+  /* FEATURE STRIP */
+  .strip{margin:-60px auto 60px;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+  .card h3{font-family:"Playfair Display",serif;margin:0 0 6px;font-size:20px}
+  .muted{color:var(--muted);margin:0}
 
-    /* CTA BANNER */
-    .band{max-width:1100px;margin:40px auto 70px;padding:0 20px}
-    .band .box{background:linear-gradient(180deg,var(--bg),var(--bg2));color:#eaf6f3;border-radius:var(--radius);
-      display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:26px 28px;box-shadow:var(--shadow)}
-    .band h3{font-family:"Playfair Display",serif;margin:0 0 6px}
-    .band p{margin:0 0 12px;color:#cfe9e3}
+  /* STORY */
+  .story{margin:20px 0 60px;display:grid;gap:28px;grid-template-columns:1.2fr .8fr}
+  .story .panel{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px}
+  .story h2{font-family:"Playfair Display",serif;margin:0 0 8px}
+  .story p{margin:0 0 10px;color:var(--muted)}
+  .story .img{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+  .story .img img{width:100%;height:100%;display:block;object-fit:cover}
+  @media (max-width:980px){.story{grid-template-columns:1fr}}
 
-    /* FOOTER */
-    .footer{background:#0e3a33;color:#d1d5db;text-align:center;padding:36px 20px}
-    .footer a{color:#fff;text-decoration:underline}
-    @media (max-width:640px){ .title{font-size:38px} }
-  </style>
+  /* TIMELINE */
+  .timeline{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin:0 0 60px}
+  .t-row{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start;padding:12px 0;border-top:1px solid #eef2f2}
+  .t-row:first-child{border-top:0}
+  .t-row .t-year{font-weight:700;color:#0f3b34}
+  .t-row p{margin:0;color:var(--muted)}
+
+  /* GALLERY */
+  .gallery{display:grid;gap:10px;grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;margin:0 0 60px}
+  .tile{border-radius:14px;overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+  .tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(105%) contrast(102%)}
+  .span2{grid-column:span 2}.row2{grid-row:span 2}
+  @media (max-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:480px){.gallery{grid-template-columns:repeat(2,1fr)}}
+
+  /* TESTIMONIALS / PRESS */
+  .quotes{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin:0 0 60px}
+  .quote{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+  .quote p{margin:0 0 8px}
+  .press{display:flex;gap:18px;flex-wrap:wrap;align-items:center;opacity:.8}
+  .badge{background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:10px 14px;font-weight:700}
+
+  /* NEWSLETTER + CONTACT */
+  .band{margin:40px 0 70px}
+  .box{background:linear-gradient(180deg,var(--bg),var(--bg2));color:#eaf6f3;border-radius:var(--radius);
+       display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:26px 28px;box-shadow:var(--shadow)}
+  .box h3{font-family:"Playfair Display",serif;margin:0 0 6px}
+  .box p{margin:0 0 12px;color:#cfe9e3}
+  .fld{display:flex;gap:10px;flex-wrap:wrap}
+  .fld input{min-width:260px;padding:12px 14px;border-radius:10px;border:0}
+  .fld button{padding:12px 16px;border-radius:10px;border:0;background:#0ad1a6;color:#073e34;font-weight:800;cursor:pointer}
+  .fld button:hover{filter:brightness(1.05)}
+  @media (max-width:720px){.box{grid-template-columns:1fr}}
+
+  .contact{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+  .contact h3{font-family:"Playfair Display",serif;margin:0 0 10px}
+  .contact a{font-weight:700;color:var(--accent)}
+  .faq{display:grid;gap:18px;margin-top:18px}
+  .faq details{background:#f9fbfb;border:1px solid #e6eeee;border-radius:12px;padding:12px 16px}
+  .faq summary{font-weight:700;cursor:pointer}
+
+  /* FOOTER */
+  .footer{background:#0e3a33;color:#d1d5db;text-align:center;padding:36px 20px;margin-top:70px}
+  .footer a{color:#fff;text-decoration:underline}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(16px);transition:.5s}
+  .reveal.show{opacity:1;transform:none}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="inner">
-      <div class="brand">BlackSea Organics</div>
-      <div class="menu">
-        <a href="#about">About</a>
-        <a href="mailto:info@blackseaorganics.com">Contact</a>
-        <a href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Etsy</a>
-      </div>
+<!-- NAV -->
+<header class="nav">
+  <div class="container inner">
+    <div class="brand">BlackSea Organics</div>
+    <nav class="menu" id="menu">
+      <a href="#story">Story</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#press">Press</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Etsy</a>
+    </nav>
+    <div class="hamb" id="hamb">☰</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container inner">
+    <h1 class="title">Wild &amp; Pure from the Black Sea Mountains</h1>
+    <p class="subtitle">Nature-first food experiences. Small-batch, handpicked, beautifully packed.</p>
+    <a class="cta" href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Shop on Etsy</a>
+  </div>
+</section>
+
+<!-- STRIP: PILLARS -->
+<section class="container strip reveal">
+  <article class="card">
+    <h3>Wild-Harvested</h3>
+    <p class="muted">Collected from the misty slopes of the Eastern Black Sea, far from industrial farming.</p>
+  </article>
+  <article class="card">
+    <h3>Small-Batch</h3>
+    <p class="muted">Minimal processing, seasonal releases and careful hand selection for peak quality.</p>
+  </article>
+  <article class="card">
+    <h3>Glass-First</h3>
+    <p class="muted">Plastic-lite packaging that respects both the product and the land.</p>
+  </article>
+</section>
+
+<!-- STORY + IMAGE -->
+<section id="story" class="container story reveal">
+  <div class="panel">
+    <h2>Our Story</h2>
+    <p>BlackSea Organics is a micro-producer from Turkey’s Black Sea mountains. We work with foragers and smallholder families to craft limited releases: Lazberry (Karayemiş), wild bilberries and a ritual white tea.</p>
+    <p>Every jar or pouch is touched by real hands — handpicked, gently dried, beautifully packed. That’s why we produce less, but better.</p>
+  </div>
+  <div class="img">
+    <img src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?q=80&w=1400&auto=format&fit=crop" alt="Black Sea mountains">
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="container timeline reveal" aria-label="Provenance timeline">
+  <div class="t-row">
+    <div class="t-year">Spring</div>
+    <p>White tea buds are handpicked at sunrise. Slow drying preserves delicate notes.</p>
+  </div>
+  <div class="t-row">
+    <div class="t-year">Summer</div>
+    <p>Wild bilberries and Lazberry are foraged on cool mornings, then sun-dried in small trays.</p>
+  </div>
+  <div class="t-row">
+    <div class="t-year">Autumn</div>
+    <p>Jam batches are prepared in glass, with minimal sugar and no artificial pectin.</p>
+  </div>
+  <div class="t-row">
+    <div class="t-year">All Year</div>
+    <p>We pack in glass first, ship worldwide and keep batches traceable.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="container gallery reveal" aria-label="Photo gallery">
+  <div class="tile span2 row2"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1200&auto=format&fit=crop" alt=""></div>
+  <div class="tile"><img src="https://images.unsplash.com/photo-1505575972945-2810a4d004d2?q=80&w=800&auto=format&fit=crop" alt=""></div>
+  <div class="tile"><img src="https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?q=80&w=800&auto=format&fit=crop" alt=""></div>
+  <div class="tile row2"><img src="https://images.unsplash.com/photo-1536510341431-2b5fce6ec3f0?q=80&w=800&auto=format&fit=crop" alt=""></div>
+  <div class="tile"><img src="https://images.unsplash.com/photo-1615486363876-9f9a5b1c5f6c?q=80&w=800&auto=format&fit=crop" alt=""></div>
+  <div class="tile"><img src="https://images.unsplash.com/photo-1502741509793-7f0b67f0c0f5?q=80&w=800&auto=format&fit=crop" alt=""></div>
+</section>
+
+<!-- TESTIMONIALS & PRESS -->
+<section id="press" class="container quotes reveal">
+  <div class="quote">
+    <p>“Clean, elegant and honest flavors. You can literally taste the mountain air.”</p>
+    <p class="muted">— Chef review</p>
+  </div>
+  <div class="quote">
+    <p>“A rare find for tea lovers. The white tea is a quiet stunner.”</p>
+    <p class="muted">— Tea journal</p>
+  </div>
+  <div class="quote">
+    <div class="press">
+      <div class="badge">Slow Food</div>
+      <div class="badge">Artisan Picks</div>
+      <div class="badge">Editors’ Choice</div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="inner">
-      <h1 class="title">Wild &amp; Pure from the Black Sea Mountains</h1>
-      <p class="subtitle">Small-batch organic delicacies. Handpicked, minimally processed, beautifully packed.</p>
-      <a class="cta" href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Shop on Etsy</a>
+<!-- NEWSLETTER + CONTACT + FAQ -->
+<section id="contact" class="container band reveal">
+  <div class="box">
+    <div>
+      <h3>Join the list</h3>
+      <p>Seasonal drops, small-batch announcements, early access.</p>
     </div>
-  </header>
+    <form class="fld" onsubmit="newsletter(event)">
+      <input type="email" id="email" placeholder="your@email.com" required />
+      <button type="submit">Notify Me</button>
+    </form>
+  </div>
 
-  <!-- STRIP: 3 PILLARS -->
-  <section class="strip" aria-label="Brand pillars">
-    <article class="card">
-      <h3>Wild-Harvested</h3>
-      <p class="muted">Collected from the misty slopes of the Eastern Black Sea, away from industrial farming.</p>
-    </article>
-    <article class="card">
-      <h3>Small-Batch</h3>
-      <p class="muted">Minimal processing, seasonal batches and careful hand selection for peak quality.</p>
-    </article>
-    <article class="card">
-      <h3>Beautifully Packed</h3>
-      <p class="muted">Glass-first, plastic-lite packaging that respects both the product and the land.</p>
-    </article>
-  </section>
+  <div class="contact">
+    <h3>Contact</h3>
+    <p>Questions, wholesale, or press? Write to <a href="mailto:info@blackseaorganics.com">info@blackseaorganics.com</a>.</p>
 
-  <!-- ABOUT -->
-  <section id="about" class="about">
-    <div class="panel">
-      <h2>About BlackSea Organics</h2>
-      <p>
-        We craft nature-first food experiences from Turkey’s Black Sea mountains. Our focus is purity: wild-harvested
-        ingredients, gentle methods and timeless taste. Explore our seasonal releases on Etsy and follow along as we grow.
-      </p>
+    <div class="faq">
+      <details>
+        <summary>Do you ship worldwide?</summary>
+        <p>Yes. We ship from Turkey with tracked services. Delivery times vary by country.</p>
+      </details>
+      <details>
+        <summary>Are your products certified organic?</summary>
+        <p>We focus on wild-harvested and smallholder sources. Certification is in progress for selected lines.</p>
+      </details>
+      <details>
+        <summary>Where can I buy?</summary>
+        <p>Our seasonal releases are available on Etsy: <a href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">BlackSea Organica</a>.</p>
+      </details>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA BANNER -->
-  <section class="band" aria-label="Call to action">
-    <div class="box">
-      <div>
-        <h3>Discover the collection on Etsy</h3>
-        <p>Worldwide shipping • Small-batch releases • Limited stock</p>
-      </div>
-      <a class="cta" href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Go to Etsy</a>
-    </div>
-  </section>
+<!-- FOOTER -->
+<footer class="footer">
+  Contact: <a href="mailto:info@blackseaorganics.com">info@blackseaorganics.com</a> ·
+  <a href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Etsy Shop</a> ·
+  © BlackSea Organics
+</footer>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    Contact: <a href="mailto:info@blackseaorganics.com">info@blackseaorganics.com</a> ·
-    <a href="https://www.etsy.com/shop/BlackSeaOrganica" target="_blank" rel="noopener">Etsy Shop</a> ·
-    © BlackSea Organics
-  </footer>
+<script>
+  // mobile menu
+  const hamb = document.getElementById('hamb'), menu = document.getElementById('menu');
+  if (hamb) hamb.addEventListener('click', ()=> menu.classList.toggle('open'));
+
+  // reveal on scroll
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
+  },{threshold:.12});
+  items.forEach(i=>io.observe(i));
+
+  // fake newsletter (no backend): mailto fallback
+  function newsletter(ev){
+    ev.preventDefault();
+    const v=document.getElementById('email').value.trim();
+    if(!v) return;
+    window.location.href = `mailto:info@blackseaorganics.com?subject=Newsletter%20Signup&body=Please%20add%20${encodeURIComponent(v)}%20to%20your%20mailing%20list.`;
+  }
+</script>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"BlackSea Organics",
+  "url":"https://onurw.github.io/blackseaorganics/",
+  "sameAs":["https://www.etsy.com/shop/BlackSeaOrganica"],
+  "contactPoint":[{
+    "@type":"ContactPoint",
+    "email":"info@blackseaorganics.com",
+    "contactType":"customer service"
+  }]
+}
+</script>
 </body>
 </html>
